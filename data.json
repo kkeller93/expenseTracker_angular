@@ -1,0 +1,72 @@
+[
+  {
+    "expenseType": "Breakfast",
+    "amount": "9.00",
+    "month": "January"
+  },
+  {
+    "expenseType": "Gas",
+    "amount": "65.23",
+    "month": "January"
+  },
+  {
+    "expenseType": "Lunch",
+    "amount": "12.35",
+    "month": "March"
+  },
+  {
+    "expenseType": "Dinner",
+    "amount": "21.22",
+    "month": "February"
+  },
+  {
+    "expenseType": "Shoes",
+    "amount": "124.21",
+    "month": "March"
+  },
+  {
+    "expenseType": "Clothes",
+    "amount": "329.32",
+    "month": "March"
+  },
+  {
+    "expenseType": "Gas",
+    "amount": "35.20",
+    "month": "March"
+  },
+  {
+    "expenseType": "Dog Food",
+    "amount": "24.98",
+    "month": "Feburary"
+  },
+  {
+    "expenseType": "Rent",
+    "amount": "1255.00",
+    "month": "January"
+  },
+  {
+    "expenseType": "Rent",
+    "amount": "1255.00",
+    "month": "February"
+  },
+  {
+    "expenseType": "Rent",
+    "amount": "1255.00",
+    "month": "March"
+  },
+  {
+    "expenseType": "Parking",
+    "amount": "12.00",
+    "month": "January"
+  },
+  {
+    "expenseType": "Groceries",
+    "amount": "152.78",
+    "month": "Febuary"
+  },
+  {
+    "expenseType": "Metro",
+    "amount": "15.20",
+    "month": "March"
+  }
+]

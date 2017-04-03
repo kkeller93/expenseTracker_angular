@@ -3,7 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>Project 4</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDJ0TDboU9_5BOuJyqEILGSvDzF_5C023E",
+        databaseURL: "https://expenses-247f3.firebaseio.com"
+      };
+      firebase.initializeApp(config);
+    </script>
     <script src="js/app.js"></script>
   </head>
   <body>
