@@ -1,7 +1,7 @@
-"use strict";
+// "use strict";
 
 angular
-  .modular('expenseTracker', [
+  .module('expenseTracker', [
     'ui.router',
     'firebase'
   ])
@@ -10,7 +10,7 @@ angular
     RouterFunction
   ])
   .controller('expenseIndexController', [
-    '$fireseArray',
+    '$firebaseArray',
     expenseIndexControllerFunction
   ])
   .controller('expenseShowController', [
@@ -58,7 +58,7 @@ function RouterFunction($stateProvider) {
     })
 }
 
-function expenseIndexControllerFunction(firebaseArray) {
+function expenseIndexControllerFunction($firebaseArray) {
   // generating all the expenses
   let ref = firebase.database().ref().child("expenses")
   this.expenses = $firebaseArray(ref)

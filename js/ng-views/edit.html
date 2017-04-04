@@ -1,10 +1,9 @@
 <h2>Edit Expense</h2>
 <form data-ng-submit = 'vm.update()'>
-  <input placeholder = "Expense Type" data-ng-model = "vm.expense.expenseType">
-  <input placeholder = "Amount" data-ng-model = "vm.expense.amount">
-  <input placeholder = "Month" data-ng-model = "vm.expense.month">
+  <input placeholder = "Expense Type" data-ng-model = "vm.expenses.expenseType">
+  <input placeholder = "Amount" data-ng-model = "vm.expenses.amount">
+  <input placeholder = "Month" data-ng-model = "vm.expenses.month">
   <button type="submit">Add Expense</button>
 </form>
-
 
 <button data-ui-sref='expenseIndex'>Home</button>
