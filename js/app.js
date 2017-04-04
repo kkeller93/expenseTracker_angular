@@ -65,7 +65,7 @@ function expenseIndexControllerFunction($firebaseArray) {
     // this.expenses = expenseFactory.query()
 }
 
-function expenseShowControllerFunction(firebaseObject, $stateParams) {
+function expenseShowControllerFunction($firebaseObject, $stateParams) {
   //rendering the individual expense
   let ref = firebase.database().ref().child('expenseTracker' + $stateParams.id)
   $firebaseObject(ref).$loaded().then(expense => this.expense = expense)
@@ -74,7 +74,7 @@ function expenseShowControllerFunction(firebaseObject, $stateParams) {
     // })
 }
 
-function expenseEditControllerFunction(firebaseObject, $stateParams, $state) {
+function expenseEditControllerFunction($firebaseObject, $stateParams, $state) {
   //updateing the expense
   this.update = function() {
     this.expense.$save()
@@ -99,7 +99,7 @@ function expenseEditControllerFunction(firebaseObject, $stateParams, $state) {
     // }
 }
 //
-function expenseNewControllerFunction(firebaseObject, $state) {
+function expenseNewControllerFunction($firebaseObject, $state) {
   // creating a new expense
   this.create = function() {
     this.expenses.$add(this.newExpense).then( () => this.newExpense = {})
