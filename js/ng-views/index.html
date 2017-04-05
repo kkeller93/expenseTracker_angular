@@ -1,5 +1,7 @@
 <div data-ng-repeat = 'expense in vm.expenses'>
   <h3>{{expense.month}}</h3>
+  <h3>{{expense.expenseType}} - {{expense.amount}}</h3>
+  <h3></h3>
   <!-- <h4>{{expense.amount}}</h4> -->
   <button data-ui-sref = 'expenseShow({id: expense.$id})'>Show More Info</button>
 </div>

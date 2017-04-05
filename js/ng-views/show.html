@@ -1,8 +1,21 @@
 <!-- <div data-ng-repeat = 'expense in vm.expenses'> -->
-  <h2>Expense Type: {{vm.expenses.expenseType}}</h2>
-  <h2>Amount: $ {{vm.expenses.amount}}</h2>
-  <h2>Month: {{vm.expenses.month}}</h2>
+
+  <h2>Expense Type: {{vm.expense.expenseType}}</h2>
+  <h2>Amount: $ {{vm.expense.amount}}</h2>
+  <h2>Month: {{vm.expense.month}}</h2>
 <!-- </div> -->
 
 <button data-ui-sref='expenseEdit'>Edit Expense</button>
 <button data-ui-sref='expenseIndex'>Home</button>
+
+
+<!-- <h2>Edit Expense</h2>
+<form data-ng-submit = 'vm.update()'>
+  <input placeholder = "Expense Type" data-ng-model = "vm.expenses.expenseType">
+  <input placeholder = "Amount" data-ng-model = "vm.expenses.amount">
+  <input placeholder = "Month" data-ng-model = "vm.expenses.month">
+  <button type="submit">Update Expense</button>
+</form>
+
+<button data-ng-click = 'vm.delete(expense)'>Remove Expense</button>
+<button data-ui-sref='expenseIndex'>Home</button> -->

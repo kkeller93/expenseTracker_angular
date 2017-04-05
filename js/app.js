@@ -15,7 +15,7 @@ angular
   ])
   .controller('expenseShowController', [
     '$stateParams',
-    '$firebaseObject',
+    '$firebaseArray',
     expenseShowControllerFunction
   ])
   .controller('expenseEditController', [
@@ -67,13 +67,22 @@ function expenseIndexControllerFunction($firebaseArray) {
 function expenseShowControllerFunction($stateParams, $firebaseObject) {
   //rendering the individual expense
   let ref = firebase.database().ref().child('expenseTracker/' + $stateParams.id)
+  // this.expenses = $firebaseArray(ref)
   $firebaseObject(ref).$loaded().then(expense => this.expense = expense)
+
+  // this.update = function() {
+  //   this.expense.$save()
+  // }
+  // //deleting the expense
+  // this.delete = function(expense) {
+  //   this.expenses.$remove(expense)
+  // }
 }
 
 function expenseEditControllerFunction($firebaseObject, $stateParams, $state) {
   //updating the expense
-  this.update = function() {
-    this.expense.$save()
+  this.update = function(expense) {
+    this.expense.$save(expense)
   }
   //deleting the expense
   this.delete = function(expense) {
