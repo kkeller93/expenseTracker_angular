@@ -14,18 +14,18 @@ angular
     expenseIndexControllerFunction
   ])
   .controller('expenseShowController', [
-    '$firebaseObject',
     '$stateParams',
+    '$firebaseObject',
     expenseShowControllerFunction
   ])
   .controller('expenseEditController', [
-    'firebaseObject',
+    '$firebaseObject',
     '$stateParams',
     '$state',
     expenseEditControllerFunction
   ])
   .controller('expenseNewController', [
-    'expenseFactory',
+    '$firebaseObject',
     '$state',
     expenseNewControllerFunction
   ])
@@ -36,6 +36,12 @@ function RouterFunction($stateProvider) {
       url: "/expenseTracker",
       templateUrl: "js/ng-views/index.html",
       controller: "expenseIndexController",
+      controllerAs: "vm"
+    })
+    .state('expenseNew', {
+      url: "/expenseTracker/new",
+      templateUrl: "js/ng-views/new.html",
+      controller: "expenseNewController",
       controllerAs: "vm"
     })
     .state('expenseShow', {
@@ -50,32 +56,22 @@ function RouterFunction($stateProvider) {
       controller: "expenseEditController",
       controllerAs: "vm"
     })
-    .state('expenseNew', {
-      url: "/expenseTracker/new",
-      templateUrl: "js/ng-views/new.html",
-      controller: "expenseNewController",
-      controllerAs: "vm"
-    })
 }
 
 function expenseIndexControllerFunction($firebaseArray) {
   // generating all the expenses
   let ref = firebase.database().ref().child("expenses")
   this.expenses = $firebaseArray(ref)
-    // this.expenses = expenseFactory.query()
 }
 
-function expenseShowControllerFunction($firebaseObject, $stateParams) {
+function expenseShowControllerFunction($stateParams, $firebaseObject) {
   //rendering the individual expense
-  let ref = firebase.database().ref().child('expenseTracker' + $stateParams.id)
+  let ref = firebase.database().ref().child('expenseTracker/' + $stateParams.id)
   $firebaseObject(ref).$loaded().then(expense => this.expense = expense)
-    // this.expense = expenseFactory.get({
-    //   id: $stateParams.id
-    // })
 }
 
 function expenseEditControllerFunction($firebaseObject, $stateParams, $state) {
-  //updateing the expense
+  //updating the expense
   this.update = function() {
     this.expense.$save()
   }

@@ -3,6 +3,8 @@
   <input placeholder = "Expense Type" data-ng-model = "vm.expenses.expenseType">
   <input placeholder = "Amount" data-ng-model = "vm.expenses.amount">
   <input placeholder = "Month" data-ng-model = "vm.expenses.month">
-  <button type="submit">Add Expense</button>
-  <button data-ui-sref='expenseIndex'>Home</button>
+  <button type="submit">Update Expense</button>
 </form>
+
+<button data-ng-click = 'vm.delete(expense)'>Remove Expense</button>
+<button data-ui-sref='expenseIndex'>Home</button>
