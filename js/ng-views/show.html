@@ -1,9 +1,11 @@
 <!-- <div data-ng-repeat = 'expense in vm.expenses'> -->
 
-  <h2>Expense Type: {{vm.expense.expenseType}}</h2>
-  <h2>Amount: $ {{vm.expense.amount}}</h2>
-  <h2>Month: {{vm.expense.month}}</h2>
+  <h2>Expense Type: {{vm.expense[1].$value}}</h2>
+  <h2>Amount: $ {{vm.expense[0].$value}}</h2>
+  <h2>Month: {{vm.expense[2].$value}}</h2>
 <!-- </div> -->
+{{vm.$stateParams.id}}
+<!-- meant to be placed in line with the expenseEdit ({$stateParams.id}) -->
 
 <button data-ui-sref='expenseEdit'>Edit Expense</button>
 <button data-ui-sref='expenseIndex'>Home</button>
