@@ -4,14 +4,14 @@
   <h2>Amount: $ {{vm.expense[0].$value}}</h2>
   <h2>Month: {{vm.expense[2].$value}}</h2>
 <!-- </div> -->
-{{vm.$stateParams.id}}
+<!-- {{vm.$stateParams.id}} -->
 <!-- meant to be placed in line with the expenseEdit ({$stateParams.id}) -->
 
-<button data-ui-sref='expenseEdit'>Edit Expense</button>
-<button data-ui-sref='expenseIndex'>Home</button>
+<!-- <button data-ui-sref='expenseEdit'>Edit Expense</button>
+<button data-ui-sref='expenseIndex'>Home</button> -->
 
 
-<!-- <h2>Edit Expense</h2>
+<h2>Edit Expense</h2>
 <form data-ng-submit = 'vm.update()'>
   <input placeholder = "Expense Type" data-ng-model = "vm.expenses.expenseType">
   <input placeholder = "Amount" data-ng-model = "vm.expenses.amount">
@@ -20,4 +20,4 @@
 </form>
 
 <button data-ng-click = 'vm.delete(expense)'>Remove Expense</button>
-<button data-ui-sref='expenseIndex'>Home</button> -->
+<button data-ui-sref='expenseIndex'>Home</button>

@@ -24,11 +24,11 @@ angular
   //   '$state',
   //   expenseEditControllerFunction
   // ])
-  .controller('expenseNewController', [
-    '$firebaseObject',
-    '$state',
-    expenseNewControllerFunction
-  ])
+  // .controller('expenseNewController', [
+  //   '$firebaseObject',
+  //   '$state',
+  //   expenseNewControllerFunction
+  // ])
 
 function RouterFunction($stateProvider) {
   $stateProvider
@@ -38,12 +38,12 @@ function RouterFunction($stateProvider) {
       controller: "expenseIndexController",
       controllerAs: "vm"
     })
-    .state('expenseNew', {
-      url: "/expenseTracker/new",
-      templateUrl: "js/ng-views/new.html",
-      controller: "expenseNewController",
-      controllerAs: "vm"
-    })
+    // .state('expenseNew', {
+    //   url: "/expenseTracker/new",
+    //   templateUrl: "js/ng-views/new.html",
+    //   controller: "expenseNewController",
+    //   controllerAs: "vm"
+    // })
     .state('expenseShow', {
       url: "/expenseTracker/:id",
       templateUrl: "js/ng-views/show.html",
@@ -82,11 +82,11 @@ function expenseShowControllerFunction($stateParams, $firebaseObject) {
   })
 
   this.update = function() {
-    this.expense.$save()
+    vm.expense.$save()
   }
   //deleting the expense
   this.delete = function(expense) {
-    this.expenses.$remove(expense)
+    this.expense.$remove(expense)
   }
 }
 
@@ -101,19 +101,19 @@ function expenseShowControllerFunction($stateParams, $firebaseObject) {
 //   }
 // }
 //
-function expenseNewControllerFunction($firebaseObject, $state) {
-  // creating a new expense
-  this.create = function() {
-    this.expenses.$add(this.newExpense).then( () => this.newExpense = {})
-  }
-//     this.expense = new expenseFactory()
-//     this.create = function() {
-//       this.expense.$save(function(expense) {
-//         $state.go('expenseShow', {
-//           id: $stateParams.id
-//         })
-//       })
-//     }
-}
+// function expenseNewControllerFunction($firebaseObject, $state) {
+//   // creating a new expense
+//   this.create = function() {
+//     this.expenses.$add(this.newExpense).then( () => this.newExpense = {})
+//   }
+// //     this.expense = new expenseFactory()
+// //     this.create = function() {
+// //       this.expense.$save(function(expense) {
+// //         $state.go('expenseShow', {
+// //           id: $stateParams.id
+// //         })
+// //       })
+// //     }
+// }
 
 // function
