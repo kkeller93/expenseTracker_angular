@@ -19,12 +19,12 @@ angular
     '$firebaseObject',
     expenseShowControllerFunction
   ])
-  .controller('expenseEditController', [
-    '$firebaseObject',
-    '$stateParams',
-    '$state',
-    expenseEditControllerFunction
-  ])
+  // .controller('expenseEditController', [
+  //   '$firebaseObject',
+  //   '$stateParams',
+  //   '$state',
+  //   expenseEditControllerFunction
+  // ])
   // .controller('expenseNewController', [
   //   '$firebaseObject',
   //   '$state',
@@ -51,12 +51,12 @@ function RouterFunction($stateProvider) {
       controller: "expenseShowController",
       controllerAs: "vm"
     })
-    .state('expenseEdit', {
-      url: "/expenseTracker/:id/edit",
-      templateUrl: "js/ng-views/edit.html",
-      controller: "expenseEditController",
-      controllerAs: "vm"
-    })
+    // .state('expenseEdit', {
+    //   url: "/expenseTracker/:id/edit",
+    //   templateUrl: "js/ng-views/edit.html",
+    //   controller: "expenseEditController",
+    //   controllerAs: "vm"
+    // })
 }
 
 function expenseIndexControllerFunction($firebaseArray) {
@@ -82,25 +82,25 @@ function expenseShowControllerFunction($stateParams, $firebaseObject) {
     // console.log(vm.expense[0].$value)
   })
 
-  this.update = function() {
+  vm.update = function() {
     vm.expense.$save()
   }
   //deleting the expense
-  this.delete = function(expense) {
-    this.expense.$remove(expense)
+  vm.delete = function(expense) {
+    vm.expense.$remove(expense)
   }
 }
 
-function expenseEditControllerFunction($firebaseObject, $stateParams, $state) {
-  //updating the expense
-  this.update = function(expense) {
-    this.expense.$save(expense)
-  }
-  //deleting the expense
-  this.delete = function(expense) {
-    this.expenses.$remove(expense)
-  }
-}
+// function expenseEditControllerFunction($firebaseObject, $stateParams, $state) {
+//   //updating the expense
+//   this.update = function() {
+//     this.expense.$save()
+//   }
+//   //deleting the expense
+//   this.delete = function(expense) {
+//     this.expenses.$remove(expense)
+//   }
+// }
 //
 // function expenseNewControllerFunction($firebaseObject, $state) {
 //   // creating a new expense
