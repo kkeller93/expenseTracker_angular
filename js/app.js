@@ -15,7 +15,6 @@ angular
   ])
   .controller('expenseShowController', [
     '$stateParams',
-    // '$firebaseArray',
     '$firebaseObject',
     expenseShowControllerFunction
   ])
@@ -72,14 +71,9 @@ function expenseIndexControllerFunction($firebaseArray) {
 function expenseShowControllerFunction($stateParams, $firebaseObject) {
   //rendering the individual expense
   vm = this
-  // let x = null
   let ref = firebase.database().ref().child('expenses/' + $stateParams.id)
-  // console.log(`============================controller ${ref}`)
-  // this.expenses = $firebaseArray(ref)
   $firebaseObject(ref).$loaded().then(function(expense){
-    // console.log(vm)
     vm.expense = expense
-    // console.log(vm.expense[0].$value)
   })
 
   vm.update = function() {
@@ -116,5 +110,3 @@ function expenseShowControllerFunction($stateParams, $firebaseObject) {
 // //       })
 // //     }
 // }
-
-// function
