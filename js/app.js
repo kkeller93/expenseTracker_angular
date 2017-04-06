@@ -18,12 +18,12 @@ angular
     '$firebaseArray',
     expenseShowControllerFunction
   ])
-  .controller('expenseEditController', [
-    '$firebaseObject',
-    '$stateParams',
-    '$state',
-    expenseEditControllerFunction
-  ])
+  // .controller('expenseEditController', [
+  //   '$firebaseObject',
+  //   '$stateParams',
+  //   '$state',
+  //   expenseEditControllerFunction
+  // ])
   .controller('expenseNewController', [
     '$firebaseObject',
     '$state',
@@ -50,18 +50,22 @@ function RouterFunction($stateProvider) {
       controller: "expenseShowController",
       controllerAs: "vm"
     })
-    .state('expenseEdit', {
-      url: "/expenseTracker/:id/edit",
-      templateUrl: "js/ng-views/edit.html",
-      controller: "expenseEditController",
-      controllerAs: "vm"
-    })
+    // .state('expenseEdit', {
+    //   url: "/expenseTracker/:id/edit",
+    //   templateUrl: "js/ng-views/edit.html",
+    //   controller: "expenseEditController",
+    //   controllerAs: "vm"
+    // })
 }
 
 function expenseIndexControllerFunction($firebaseArray) {
   // generating all the expenses
   let ref = firebase.database().ref().child("expenses")
   this.expenses = $firebaseArray(ref)
+
+  this.create = function() {
+    this.expenses.$add(this.newExpense).then( () => this.newExpense = {})
+  }
 }
 
 function expenseShowControllerFunction($stateParams, $firebaseObject) {
@@ -69,54 +73,33 @@ function expenseShowControllerFunction($stateParams, $firebaseObject) {
   vm = this
   let x = null
   let ref = firebase.database().ref().child('expenses/' + $stateParams.id)
-  console.log(`============================controller ${ref}`)
+  // console.log(`============================controller ${ref}`)
   // this.expenses = $firebaseArray(ref)
   $firebaseObject(ref).$loaded().then(function(expense){
-    console.log(vm)
+    // console.log(vm)
     vm.expense = expense
-console.log(vm.expense[0].$value)
-    // vm.expense = {}
-    // id
-    // value
-
-
+    // console.log(vm.expense[0].$value)
   })
 
-
-
-  // this.update = function() {
-  //   this.expense.$save()
-  // }
-  // //deleting the expense
-  // this.delete = function(expense) {
-  //   this.expenses.$remove(expense)
-  // }
-}
-
-function expenseEditControllerFunction($firebaseObject, $stateParams, $state) {
-  //updating the expense
-  this.update = function(expense) {
-    this.expense.$save(expense)
+  this.update = function() {
+    this.expense.$save()
   }
   //deleting the expense
   this.delete = function(expense) {
     this.expenses.$remove(expense)
   }
-    // this.expense = expenseFactory.get({
-    //   id: $stateParams.id
-    // })
-    // this.update = function() {
-    //   this.expense.$update({id: $stateParams.id}, function(expense) {
-    //     $state.go('expenseShow', {id: expense.id})
-    //   })
-    // }
-    //
-    // this.destroy = function() {
-    //   this.expense.delete({
-    //     id: $stateParams.id
-    //   })
-    // }
 }
+
+// function expenseEditControllerFunction($firebaseObject, $stateParams, $state) {
+//   //updating the expense
+//   this.update = function(expense) {
+//     this.expense.$save(expense)
+//   }
+//   //deleting the expense
+//   this.delete = function(expense) {
+//     this.expenses.$remove(expense)
+//   }
+// }
 //
 function expenseNewControllerFunction($firebaseObject, $state) {
   // creating a new expense
@@ -132,3 +115,5 @@ function expenseNewControllerFunction($firebaseObject, $state) {
 //       })
 //     }
 }
+
+// function
