@@ -5,10 +5,15 @@
 
 <h2>Edit Expense</h2>
 <form data-ng-submit = 'vm.update()'>
-  <input placeholder = "Expense Type" data-ng-model = "vm.expense.expenseType">
-  <input placeholder = "Amount" data-ng-model = "vm.expense.amount">
-  <input placeholder = "Month" data-ng-model = "vm.expense.month">
-  <button type="submit">Update Expense</button>
+  <div class="form-group">
+    <input class="form-control" placeholder = "Expense Type" data-ng-model = "vm.expense.expenseType">
+    <br/>
+    <input class="form-control" placeholder = "Amount" data-ng-model = "vm.expense.amount">
+    <br/>
+    <input class="form-control" placeholder = "Month" data-ng-model = "vm.expense.month">
+    <br/>
+    <button type="submit">Update Expense</button>
+  </div>
 </form>
 
 <button data-ui-sref='expenseIndex()' ng-click = 'vm.delete(expense)'>Remove Expense</button>

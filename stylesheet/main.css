@@ -1,5 +1,5 @@
 body {
   background-image: url('https://cdn.shutterstock.com/shutterstock/videos/745942/thumb/1.jpg');
-  background-position: left;
+  background-repeat: no-repeat;
   background-size: cover;
 }

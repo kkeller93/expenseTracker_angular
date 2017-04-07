@@ -1,12 +1,18 @@
-<div data-ng-repeat = 'expense in vm.expenses'>
+<div ng-repeat = 'expense in vm.expenses'>
   <h3>{{expense.month}} - {{expense.expenseType}}</h3>
-  <button data-ui-sref = 'expenseShow({id: expense.$id})'>Show More Info</button>
+  <!-- <h3>{{expense.expenseType}}</h3> -->
+  <button class="btn btn-primary" data-ui-sref = 'expenseShow({id: expense.$id})'>Show More Info</button>
 </div>
 
 <h2>Add a New Expense</h2>
-<form data-ng-submit = 'vm.create()'>
-  <input placeholder = "Expense Type" data-ng-model = "vm.newExpense.expenseType">
-  <input placeholder = "Amount" data-ng-model = "vm.newExpense.amount">
-  <input placeholder = "Month" data-ng-model = "vm.newExpense.month">
-  <button type="submit">Add Expense</button>
+<form class="form-group" data-ng-submit = 'vm.create()'>
+  <div class="form-group">
+    <input class="form-control" placeholder = "Expense Type" data-ng-model = "vm.newExpense.expenseType">
+    <br/>
+    <input class="form-control" placeholder = "Amount" data-ng-model = "vm.newExpense.amount">
+    <br/>
+    <input class="form-control" placeholder = "Month" data-ng-model = "vm.newExpense.month">
+    <br/>
+    <button class="btn btn-primary" type="submit">Add Expense</button>
+  </div>
 </form>
