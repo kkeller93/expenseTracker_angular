@@ -12,9 +12,8 @@
     <br/>
     <input class="form-control" placeholder = "Month" data-ng-model = "vm.expense.month">
     <br/>
-    <button type="submit">Update Expense</button>
+    <button class="btn btn-primary" type="submit">Update Expense</button>
+    <button class="btn btn-primary" data-ui-sref='expenseIndex()' ng-click = 'vm.delete(expense)'>Remove Expense</button>
+    <button class="btn btn-primary" data-ui-sref='expenseIndex'>Home</button>
   </div>
 </form>
-
-<button data-ui-sref='expenseIndex()' ng-click = 'vm.delete(expense)'>Remove Expense</button>
-<button data-ui-sref='expenseIndex'>Home</button>
